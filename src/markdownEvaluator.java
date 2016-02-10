@@ -5,6 +5,8 @@
 import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.tree.*;
 
+import java.util.Objects;
+
 public class markdownEvaluator extends markdownBaseVisitor {
 
 
@@ -65,7 +67,7 @@ public class markdownEvaluator extends markdownBaseVisitor {
     public Object visitCustom(markdownParser.CustomContext ctx) {
         int headernumber = 0;
         int i=0;
-        while(ctx.getChild(i)==null)
+        while(Objects.equals(ctx.getChild(i).getText(), "#"))
         {
             headernumber++;
             i++;
@@ -74,6 +76,7 @@ public class markdownEvaluator extends markdownBaseVisitor {
         while (ctx.getChild(i)!=null)
         {
             visit(ctx.getChild(i));
+            i++;
         }
         System.out.print("</h"+String.valueOf(headernumber)+">");
         return null;
