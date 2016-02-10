@@ -8,6 +8,7 @@ stat    :   main_heading
         |   bold
         |   bolditalic
         |   text
+        |   WS
         ;
 
 text    :   TEXT|SPACE;
