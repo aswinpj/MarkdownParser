@@ -7,9 +7,9 @@ import org.antlr.v4.runtime.tree.ParseTree;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
-        ANTLRInputStream inputStream = new ANTLRInputStream("Hope this **Bold within *italic* example works**");
+        ANTLRFileStream inputStream = new ANTLRFileStream(args[0]);
         markdownLexer lexer = new markdownLexer(inputStream);
         CommonTokenStream tokenStream = new CommonTokenStream(lexer);
         markdownParser parser = new markdownParser(tokenStream);

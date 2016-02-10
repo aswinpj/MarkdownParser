@@ -12,9 +12,9 @@ stat    :   main_heading
 
 text    :   TEXT|SPACE;
 
-main_heading: text* WS '='+ WS;
+main_heading: text* WS '='+ WS+;
 
-sub_heading : text* WS '-'+ WS;
+sub_heading : WS? text* WS '-'+ WS+;
 
 italic  :   ('*'stat*'*')|('_'stat*'_');
 

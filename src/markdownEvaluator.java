@@ -49,7 +49,7 @@ public class markdownEvaluator extends markdownBaseVisitor {
 
     @Override
     public Object visitSub_heading(markdownParser.Sub_headingContext ctx) {
-        int i=1;
+        int i=0;
         System.out.print("<h2>");
         while(ctx.getChild(i)!=null)
         {
@@ -57,12 +57,13 @@ public class markdownEvaluator extends markdownBaseVisitor {
             i++;
         }
         System.out.print("</h2>");
+        System.out.println();
         return null;
     }
 
     @Override
     public Object visitMain_heading(markdownParser.Main_headingContext ctx) {
-        int i=1;
+        int i=0;
         System.out.print("<h1>");
         while(ctx.getChild(i)!=null)
         {
@@ -70,6 +71,7 @@ public class markdownEvaluator extends markdownBaseVisitor {
             i++;
         }
         System.out.print("</h1>");
+        System.out.println();
         return null;
     }
 
