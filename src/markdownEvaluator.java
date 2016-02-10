@@ -7,27 +7,22 @@ import org.antlr.v4.runtime.tree.*;
 
 public class markdownEvaluator extends markdownBaseVisitor {
 
-    @Override
-    public Object visitProg(markdownParser.ProgContext ctx) {
-        System.out.println("I have entered the program");
-        return null;
-    }
 
     @Override
     public Object visitItalic(markdownParser.ItalicContext ctx) {
-        System.out.println("Visited Italic");
-        return null;
+        System.out.println("<i>"+ctx.getText()+"</i>");
+        return ctx.getText();
     }
 
     @Override
     public Object visitBold(markdownParser.BoldContext ctx) {
-        System.out.println("Visited Bold");
-        return null;
+        System.out.println("<strong>"+ctx.getText()+"</strong>");
+        return ctx.getText();
     }
 
     @Override
     public Object visitBolditalic(markdownParser.BolditalicContext ctx) {
-        System.out.println("Visited Bold Italic");
-        return null;
+        System.out.println("<strong><i>"+ctx.getText()+"</i></strong>");
+        return ctx.getText();
     }
 }
