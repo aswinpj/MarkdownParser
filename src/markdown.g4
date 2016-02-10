@@ -2,13 +2,19 @@ grammar markdown;
 
 prog    :   stat+;
 
-stat    :   text
+stat    :   main_heading
+        |   sub_heading
         |   italic
         |   bold
         |   bolditalic
+        |   text
         ;
 
 text    :   TEXT|SPACE;
+
+main_heading: text* WS '='+ WS;
+
+sub_heading : text* WS '-'+ WS;
 
 italic  :   ('*'stat*'*')|('_'stat*'_');
 
@@ -21,4 +27,5 @@ TEXT    :   [a-zA-Z0-9]+;
 SPACE   :   ' ';
 
 WS      :   [\t\r\n]+;
+
 

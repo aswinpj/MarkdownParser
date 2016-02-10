@@ -37,6 +37,26 @@ public interface markdownListener extends ParseTreeListener {
 	 */
 	void exitText(markdownParser.TextContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link markdownParser#main_heading}.
+	 * @param ctx the parse tree
+	 */
+	void enterMain_heading(markdownParser.Main_headingContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link markdownParser#main_heading}.
+	 * @param ctx the parse tree
+	 */
+	void exitMain_heading(markdownParser.Main_headingContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link markdownParser#sub_heading}.
+	 * @param ctx the parse tree
+	 */
+	void enterSub_heading(markdownParser.Sub_headingContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link markdownParser#sub_heading}.
+	 * @param ctx the parse tree
+	 */
+	void exitSub_heading(markdownParser.Sub_headingContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link markdownParser#italic}.
 	 * @param ctx the parse tree
 	 */

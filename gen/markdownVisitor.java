@@ -28,6 +28,18 @@ public interface markdownVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitText(markdownParser.TextContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link markdownParser#main_heading}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMain_heading(markdownParser.Main_headingContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link markdownParser#sub_heading}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSub_heading(markdownParser.Sub_headingContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link markdownParser#italic}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
