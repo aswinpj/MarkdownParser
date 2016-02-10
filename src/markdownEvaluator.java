@@ -62,6 +62,24 @@ public class markdownEvaluator extends markdownBaseVisitor {
     }
 
     @Override
+    public Object visitCustom(markdownParser.CustomContext ctx) {
+        int headernumber = 0;
+        int i=0;
+        while(ctx.getChild(i)==null)
+        {
+            headernumber++;
+            i++;
+        }
+        System.out.print("<h"+String.valueOf(headernumber)+">");
+        while (ctx.getChild(i)!=null)
+        {
+            visit(ctx.getChild(i));
+        }
+        System.out.print("</h"+String.valueOf(headernumber)+">");
+        return null;
+    }
+
+    @Override
     public Object visitMain_heading(markdownParser.Main_headingContext ctx) {
         int i=0;
         System.out.print("<h1>");

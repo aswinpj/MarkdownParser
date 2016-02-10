@@ -18,7 +18,7 @@ main_heading: text* WS '='+ WS+;
 
 sub_heading : WS? text* WS '-'+ WS+;
 
-custom      : '#'+ text WS;
+custom      : '#'+ text* WS;
 
 italic  :   ('*'stat*'*')|('_'stat*'_');
 
