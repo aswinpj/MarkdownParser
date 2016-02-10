@@ -10,19 +10,46 @@ public class markdownEvaluator extends markdownBaseVisitor {
 
     @Override
     public Object visitItalic(markdownParser.ItalicContext ctx) {
-        System.out.println("<i>"+ctx.getText()+"</i>");
-        return ctx.getText();
+        int i=1;
+        System.out.print("<i>");
+        while(ctx.getChild(i)!=null)
+        {
+            visit(ctx.getChild(i));
+            i++;
+        }
+        System.out.print("</i>");
+        return null;
     }
 
     @Override
     public Object visitBold(markdownParser.BoldContext ctx) {
-        System.out.println("<strong>"+ctx.getText()+"</strong>");
-        return ctx.getText();
+        int i=1;
+        System.out.print("<strong>");
+        while(ctx.getChild(i)!=null)
+        {
+            visit(ctx.getChild(i));
+            i++;
+        }
+        System.out.print("</strong>");
+        return null;
     }
 
     @Override
     public Object visitBolditalic(markdownParser.BolditalicContext ctx) {
-        System.out.println("<strong><i>"+ctx.getText()+"</i></strong>");
-        return ctx.getText();
+        int i=1;
+        System.out.print("<strong><i>");
+        while(ctx.getChild(i)!=null)
+        {
+            visit(ctx.getChild(i));
+            i++;
+        }
+        System.out.print("</i></strong>");
+        return null;
+    }
+
+    @Override
+    public Object visitText(markdownParser.TextContext ctx) {
+        System.out.print(ctx.getText());
+        return null;
     }
 }

@@ -9,7 +9,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        ANTLRInputStream inputStream = new ANTLRInputStream("This is **an bold** *example italic* sentence");
+        ANTLRInputStream inputStream = new ANTLRInputStream("Hope this **Bold within *italic* example works**");
         markdownLexer lexer = new markdownLexer(inputStream);
         CommonTokenStream tokenStream = new CommonTokenStream(lexer);
         markdownParser parser = new markdownParser(tokenStream);
